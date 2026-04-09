@@ -8,6 +8,7 @@ public class EdadminApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(EdadminApplication.class, args);
+		System.out.println("DB URL: " + System.getenv("DB_URL"));
 	}
 
 }
