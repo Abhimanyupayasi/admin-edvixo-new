@@ -4,6 +4,8 @@ import lombok.*;
 
 @Getter @Setter
 public class UserRequest {
-    private String name;
-    private int age;
+	 private String name;
+	    private int age;
+	    private String email;
+	    private String password;
 }
