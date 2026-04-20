@@ -12,4 +12,5 @@ import com.example.edadmin.entity.Feature;
 public interface FeatureRepository extends JpaRepository<Feature, UUID> {
 
     Optional<Feature> findByFeatureKey(String featureKey);
+     boolean existsByFeatureKey(String featureKey);
 }
