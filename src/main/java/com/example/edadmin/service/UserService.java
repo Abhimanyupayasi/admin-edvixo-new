@@ -18,8 +18,15 @@ public class UserService {
 
     public User create(UserRequest req) {
         User user = new User();
+
         user.setName(req.getName());
         user.setAge(req.getAge());
+
+        // 🔥 IMPORTANT FIX
+        user.setEmail(req.getEmail());
+        user.setPassword(req.getPassword());
+        user.setRole("SUPER_ADMIN"); // default role
+
         return repo.save(user);
     }
 
