@@ -1,12 +1,14 @@
 package com.example.edadmin.entity;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.UUID;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
 
@@ -20,6 +22,9 @@ public class Feature {
 
     @Column(nullable = false, length = 100)
     private String name;
+
+	@OneToMany(mappedBy = "feature")
+	private List<PlanFeature> planFeatures;
 
     @Column(name = "feature_key", unique = true, nullable = false)
     private String featureKey;

@@ -2,9 +2,11 @@ package com.example.edadmin.entity;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.UUID;
 
 import jakarta.persistence.*;
+
 
 @Entity
 @Table(name = "plans")
@@ -16,6 +18,10 @@ public class Plan {
 
     @Column(nullable = false, length = 50)
     private String name;
+
+    @OneToMany(mappedBy = "plan", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<PlanFeature> planFeatures;
+    
 
     @Column(columnDefinition = "TEXT")
     private String description;
@@ -109,4 +115,22 @@ public boolean isActive() {
 public void setActive(boolean isActive) {
     this.isActive = isActive;
 }
+
+public UUID getId() {
+    return id;
+}
+
+public void setId(UUID id) {
+    this.id = id;
+}
+
+public List<PlanFeature> getPlanFeatures() {
+    return planFeatures;
+}
+
+public void setPlanFeatures(List<PlanFeature> planFeatures) {
+    this.planFeatures = planFeatures;
+}
+
+
 }
