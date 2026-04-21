@@ -5,6 +5,7 @@ import java.util.UUID;
 
 import org.springframework.web.bind.annotation.*;
 
+import com.example.edadmin.dto.PlanResponse;
 import com.example.edadmin.entity.Plan;
 import com.example.edadmin.service.PlanService;
 
@@ -25,10 +26,11 @@ public class PlanController {
     }
 
     // GET ALL
+
     @GetMapping
-    public List<Plan> getAll() {
-        return service.getAll();
-    }
+   public List<PlanResponse> getAllPlans() {
+    return service.getAllPlansWithFeatures();
+}
 
     // GET BY ID
     @GetMapping("/{id}")
@@ -47,5 +49,11 @@ public class PlanController {
     public String delete(@PathVariable UUID id) {
         service.delete(id);
         return "Plan deleted successfully";
+    }
+
+    // PRICING API
+    @GetMapping("/pricing")
+    public List<PlanResponse> getPricing() {
+        return service.getAllPlansWithFeatures();
     }
 }
