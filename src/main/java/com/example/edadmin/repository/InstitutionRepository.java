@@ -1,0 +1,9 @@
+package com.example.edadmin.repository;
+
+import com.example.edadmin.entity.Institution;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.UUID;
+
+public interface InstitutionRepository extends JpaRepository<Institution, UUID> {
+}

@@ -2,6 +2,8 @@ package com.example.edadmin.entity;
 
 import java.util.UUID;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -14,6 +16,7 @@ public class PlanFeature {
 
     @ManyToOne
     @JoinColumn(name = "plan_id", nullable = false)
+    @JsonIgnore 
     private Plan plan;
 
     @ManyToOne
